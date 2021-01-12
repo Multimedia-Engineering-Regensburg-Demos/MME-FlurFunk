@@ -19,17 +19,22 @@
         <input type="button" value="Send">
     </div>
 
+    <!-- Template für eine Nachricht im Board -->
     <template id="message-template">
         <span class="message">
             <span class="meta">
+            <!-- Timestamp der Nachricht als lesbares Datumsformat -->
             <span class="date"><span class="emoj">&#x1F4C5;</span><span class="date-value"></span></span>
+            <!-- AutorIn der Nachricht -->
         <span class="from"><span class="emoj">&#x1F4AC;</span><span class="from-value"></span></span>
         </span>
+        <!-- Text der Nachricht -->
         <span class="text"></span>
         </span>
     </template>
 </body>
 
+<!-- Einbinden der socket.io-Client-Library für die Verwendung im Browser -->
 <script src="/socket.io/socket.io.js"></script>
 <script type="module" src="resources/js/index.js"></script>
 
