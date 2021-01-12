@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlurFunk</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+</head>
+
+<body>
+    <h1><span class="emoji">&#x1F4E2;</span>FlurFunk</h1>
+    <div class="board">
+    </div>
+    <div class="editor">
+        <textarea placeholder="Write a message ..." class="message" name="message" cols="80" rows="5"></textarea>
+        <input type="button" value="Send">
+    </div>
+
+    <template id="message-template">
+        <span class="message">
+            <span class="meta">
+            <span class="date"><span class="emoj">&#x1F4C5;</span><span class="date-value"></span></span>
+        <span class="from"><span class="emoj">&#x1F4AC;</span><span class="from-value"></span></span>
+        </span>
+        <span class="text"></span>
+        </span>
+    </template>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="resources/js/index.js"></script>
+
+</html>

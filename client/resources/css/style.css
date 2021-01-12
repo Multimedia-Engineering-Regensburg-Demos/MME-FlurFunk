@@ -1,0 +1,112 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "TwitterColorEmoji";
+    src: url("./TwitterColorEmoji/TwitterColorEmoji-SVGinOT.ttf") format("truetype");
+}
+
+:root {
+    --font: #333333;
+    --font-light: #FAFAFA;
+    --background-light: #FAFAFA99;
+    --mauve: #592941;
+    --viridian: #498467;
+    --green: #52b788;
+    --celadon: #b2d3a8;
+    --champagne: #ede5a6;
+}
+
+body {
+    font-family: "Yusei Magic", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--champagne);
+}
+
+.emoji {
+    font-family: "TwitterColorEmoji";
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
+h1 {
+    margin: 0;
+    padding: 1vh 20vw;
+    background-color: var(--viridian);
+    color: var(--font-light);
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    flex-grow: 1;
+    background-color: var(--grey);
+    overflow-y: scroll;
+}
+
+.board .message {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 20vw;
+    background-color: var(--background-light);
+    color: var(--font);
+}
+
+.board .message .meta {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: var(--font);
+    margin-bottom: 1vh;
+    padding-bottom: 1vh;
+}
+
+.board .message .text {}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 2vh 20vw;
+    background-color: var(--viridian);
+}
+
+.editor .message {
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    background-color: var(--viridian);
+    font-family: "Yusei Magic", sans-serif;
+    color: var(--font-light);
+}
+
+.editor input[type="button"] {
+    align-self: flex-end;
+    overflow: auto;
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--mauve);
+    border-radius: 4px;
+    background-color: var(--mauve);
+    font-family: "Yusei Magic", sans-serif;
+    font-size: 1em;
+    line-height: 2em;
+    color: var(--font-light);
+}
+
+.editor input[type="button"]:hover {
+    cursor: pointer;
+}
