@@ -4,7 +4,6 @@ import { Observable, Event } from "/shared/Observable.js";
 import { Message, ClientMessage } from "/shared/Message.js";
 
 function onHistory(message) {
-    this.id = message.to;
     this.notifyAll(new Event("history", Message.fromJSON(message)));
 }
 
@@ -24,8 +23,8 @@ class FlurFunkClient extends Observable {
         this.ws.on("message", onMessage.bind(this));
     }
 
-    send(message) {
-        this.ws.emit("message", new ClientMessage(this.id, message));
+    send(username, message) {
+        this.ws.emit("message", new ClientMessage(username, message));
     }
 
 }

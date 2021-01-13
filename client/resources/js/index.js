@@ -5,6 +5,7 @@ import FlurFunkClient from "./FlurFunkClient.js";
 const MESSAGE_TEMPLATE = document.querySelector("#message-template").innerHTML.trim();
 
 var boardEl,
+    userNameEl,
     messageEl;
 
 function onMessageHistoryReceived(event) {
@@ -17,15 +18,16 @@ function onMessage(event) {
 }
 
 function onMessageSend(event) {
-    if (messageEl.value === "") {
+    if (userNameEl.value === "" || messageEl.value === "") {
         return;
     }
-    FlurFunkClient.send(messageEl.value);
+    console.log("Trying to send message");
+    FlurFunkClient.send(userNameEl.value, messageEl.value);
     messageEl.value = "";
 }
 
 function addMessageToBoard(message) {
-    let date = new Date(message.data.time),
+    let date = new Date(message.time).toLocaleDateString(),
         tmpElement = document.createElement("div"),
         messageElement;
     tmpElement.innerHTML = MESSAGE_TEMPLATE;
@@ -41,8 +43,9 @@ function init() {
 }
 
 function initUI() {
-    let sendMessageButton = document.querySelector(".editor input");
+    let sendMessageButton = document.querySelector(".editor input[type=\"button\"]");
     boardEl = document.querySelector(".board");
+    userNameEl = document.querySelector(".editor input[type=\"text\"]");
     messageEl = document.querySelector(".editor textarea");
     sendMessageButton.addEventListener("click", onMessageSend);
 }

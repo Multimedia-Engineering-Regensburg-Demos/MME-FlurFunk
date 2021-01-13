@@ -18,7 +18,7 @@ function onClientConnect(socket) {
 }
 
 function onClientMessage(message) {
-    let _message = new BroadcastMessage(this.id, message.data, message.time);
+    let _message = new BroadcastMessage(message.from, message.data, message.time);
     messages.push(_message);
     ws.emit("message", _message);
 }
